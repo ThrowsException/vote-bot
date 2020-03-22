@@ -1,14 +1,14 @@
-import * as DiscordJS from 'discord.js';
+import { Client, Message } from 'discord.js';
 
 require('dotenv').config();
 
-const client = new DiscordJS.Client();
+const client = new Client();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client?.user?.tag}!`);
 });
 
-client.on('message', async (msg: DiscordJS.Message) => {
+client.on('message', async (msg: Message) => {
   if (msg.content === '!poll') {
     await msg.channel.send('A poll has been started for 10 seconds');
 
