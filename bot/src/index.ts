@@ -1,12 +1,14 @@
+import * as DiscordJS from 'discord.js';
+
 require('dotenv').config();
-const Discord = require('discord.js');
-const client = new Discord.Client();
+
+const client = new DiscordJS.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client?.user?.tag}!`);
 });
 
-client.on('message', async msg => {
+client.on('message', async (msg: DiscordJS.Message) => {
   if (msg.content === '!poll') {
     await msg.channel.send('A poll has been started for 10 seconds');
 
@@ -16,11 +18,11 @@ client.on('message', async msg => {
 
     let results = [];
     let iter = collected.values();
-    for (val of iter) {
+    for (let val of iter) {
       results.push(val.content);
     }
 
-    let totals = {};
+    let totals: { [key: string]: number } = {};
     results.map(item => {
       totals[item] = totals[item] || 0;
       totals[item] = totals[item] + 1;

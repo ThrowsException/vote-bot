@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/ws": "^7.2.3",
     "discord.js": "^12.0.2"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "@types/node": "^13.9.3",
+    "dotenv": "^8.2.0",
+    "typescript": "^3.8.3"
   }
 }
