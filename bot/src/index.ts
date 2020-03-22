@@ -16,16 +16,11 @@ client.on('message', async (msg: Message) => {
       time: 10000,
     });
 
-    let results = [];
-    let iter = collected.values();
-    for (let val of iter) {
-      results.push(val.content);
-    }
-
     let totals: { [key: string]: number } = {};
-    results.map(item => {
-      totals[item] = totals[item] || 0;
-      totals[item] = totals[item] + 1;
+    collected.forEach(item => {
+      const current = totals[item.content];
+      totals[item.content] = current || 0;
+      totals[item.content] = current + 1;
     });
 
     await msg.channel.send(`Collected ${JSON.stringify(totals)}`);
