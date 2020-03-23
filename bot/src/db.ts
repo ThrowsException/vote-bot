@@ -1,7 +1,7 @@
 import { MongoClient, Db, ObjectId } from 'mongodb';
 
 // Connection URL
-const url = 'mongodb://localhost:32768';
+const url = 'mongodb://localhost:27017';
 
 // Database Name
 const dbName = 'myproject';
